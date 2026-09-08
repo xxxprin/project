@@ -1,0 +1,17 @@
+body {
+  background-color: #f7f4ef;
+}
+
+.filters {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-start;
+}

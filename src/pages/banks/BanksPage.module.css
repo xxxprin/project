@@ -1,0 +1,54 @@
+.banks {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.banks h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.bank {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.bank:hover {
+  border-color: #dbe4ff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.bank img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: #f7f7f7;
+}
+
+.bank div {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}

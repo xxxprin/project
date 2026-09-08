@@ -1,0 +1,30 @@
+.locationToggle {
+  display: flex;
+  gap: 0;
+  background: #f0f0f0;
+  border-radius: 999px;
+  padding: 3px;
+  width: fit-content;
+}
+
+.locationToggle button {
+  border: none;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.locationToggle button:hover {
+  color: #333;
+}
+
+.locationToggle button.active {
+  background: white;
+  color: #1a56db;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}

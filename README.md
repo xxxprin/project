@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Наши планы
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Фильтрация по банкам:
 
-Currently, two official plugins are available:
+- учесть, что она общая для всех разделов (например, такси и ресторны)
+- при этом имеет смысл показывать только те банки, для которых есть есть предложения этой опции
+- учитывать фильтр по деньгам (если бан не попадае под условие, тоже нет смысла показывать)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Переносим фильтры в redux (redux-toolkit)
 
-## React Compiler
+- фильтрация банки / капитал -- отдельный редьюсер
+- фильтры каршеринг/такси/... + сортировка -- редьюсер страницы такси
+- фильтры ресторанов
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. Роутинг
 
-## Expanding the ESLint configuration
+- localhost/premium/banks
+- localhost/premium/banks/vtb
+- localhost/premium/banks/sber
+- localhost/premium/taxi ←←←
+- localhost/premium/taxi/vtb
+- localhost/premium/taxi/sber
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## SSR
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- хранить в куках фильтры
+- хранить в куках регион + инициализировать регион на бэке на основе айпи-адреса
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+/domain
+/premium
+/modules
+/taxi
+/components
+/domain
+/redux
+taxiSlice.ts
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+domain → api → redux/state → utils → component
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+// тесты
+// filteredTaxiRows
+// hasRequirementKey
+// getServiceName
+// getLocation
+// getSliderValue
+// getBalance
+// formatTaxi
+// formatRequirments
+// formatOneRequirment
+// formatMoney

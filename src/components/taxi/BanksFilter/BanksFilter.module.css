@@ -1,0 +1,42 @@
+.left {
+  flex: 1;
+}
+
+.banks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bank {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.bank img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.bank h5 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.active {
+  background: #eef4ff;
+  border-color: #b3d0ff;
+}
+
+.active h5 {
+  color: #1a56db;
+}
